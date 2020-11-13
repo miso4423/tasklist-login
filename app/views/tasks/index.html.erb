@@ -1,3 +1,9 @@
+<% if logged_in? %>
+  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+<% else %>
+  redirect_to login_url
+<% end %>
+
 <h1>予定表</h1>
 
 <ul>
