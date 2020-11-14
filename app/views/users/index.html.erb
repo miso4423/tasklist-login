@@ -1,2 +1,15 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<% if logged_in? %>
+  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+<% else %>
+  redirect_to login_url
+<% end %>
+
+<h1>予定表</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <li><%= link_to user.id, user %> : <%= user.status %> &gt; <%= user.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to "新規タスクの作成", new_user_path %>

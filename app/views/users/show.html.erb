@@ -1,2 +1,7 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>id: <%= @user.id %>の詳細ページ</h1>
+<p><%= @user.content %></p>
+<p><%= @user.status %></p>
+
+<%= link_to "タスク一覧", users_path %>
+<%= link_to "このタスクの編集をする", edit_user_path(@user) %>
+<%= link_to "このタスクを削除する", @user, method: :delete, data: { confirm: "本当に削除してよろしいですか？" } %>
